@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Портфолио · Кирилл Сергеевич П.</title>
+    <style>
+        /* === БАЗОВЫЕ СТИЛИ === */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #0a0a0a;
+            color: #fff;
+            font-family: 'Inter', -apple-system, sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* === ШАПКА === */
+        .header {
+            position: sticky;
+            top: 0;
+            background: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(20px);
+            z-index: 100;
+            padding: 20px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        .header h1 {
+            font-size: 35px;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+        .header .contacts {
+            display: flex;
+            gap: 25px;
+            font-size: 28px;
+            opacity: 1.0;
+        }
+        .header a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        /* === СЕКЦИЯ ПОРТФОЛИО (ОДИН ПРОЕКТ) === */
+        .portfolio-item {
+            display: flex;
+            align-items: center;
+            min-height: 100vh;
+            padding: 80px 40px;
+            gap: 60px;
+        }
+
+        /* Шахматный порядок */
+        .portfolio-item.reverse {
+            flex-direction: row-reverse;
+        }
+
+        /* === ОБЁРТКА ВИДЕО С РАЗМЫТЫМ ФОНОМ === */
+        .video-wrapper {
+            flex: 1;
+            position: relative;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.7);
+            aspect-ratio: 16 / 9;
+            background: #000;
+        }
+
+        /* Размытый фон (скрытая копия видео) */
+        .video-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: blur(20px) brightness(0.4);
+            transform: scale(1.1);
+            z-index: 1;
+        }
+
+        /* Основное видео (поверх размытого фона) */
+        .video-main {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            z-index: 2;
+            display: block;
+        }
+
+        /* Информация о проекте */
+        .info {
+            flex: 1;
+            max-width: 500px;
+        }
+        .info h2 {
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            letter-spacing: -0.5px;
+        }
+        .info .description {
+            font-size: 16px;
+            line-height: 1.6;
+            opacity: 0.75;
+            margin-bottom: 24px;
+        }
+        .info .price {
+            font-size: 28px;
+            font-weight: 700;
+            color: #fff;
+            background: linear-gradient(135deg, #6c5ce7, #a29bfe);
+            display: inline-block;
+            padding: 8px 24px;
+            border-radius: 50px;
+        }
+
+        /* === КНОПКИ === */
+        .btn {
+            display: inline-block;
+            padding: 14px 28px;
+            border-radius: 50px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.3s;
+            font-size: 16px;
+            margin-right: 12px;
+        }
+        .btn-outline {
+            background: transparent;
+            color: #fff;
+            border: 1.5px solid rgba(255,255,255,0.4);
+        }
+        .btn-outline:hover {
+            border-color: #fff;
+            background: rgba(255,255,255,0.1);
+        }
+
+        /* === АДАПТИВ ДЛЯ ТЕЛЕФОНОВ === */
+        @media (max-width: 768px) {
+            .portfolio-item, .portfolio-item.reverse {
+                flex-direction: column;
+                padding: 40px 20px;
+                gap: 30px;
+                min-height: auto;
+            }
+            .info {
+                max-width: 100%;
+            }
+            .info h2 {
+                font-size: 28px;
+            }
+            .header {
+                padding: 16px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- === ШАПКА === -->
+    <header class="header">
+        <h1>Портфолио · Кирилл Сергеевич П.</h1>
+        <div class="contacts">
+            <h1>Контакты:</h1>
+            <a href="tel:+79528719211">📞 +7 952 871-92-11</a>
+            <a href="https://t.me/kirill_tutt" target="_blank">💬 Telegram</a>
+        </div>
+    </header>
+
+    <!-- ПРОЕКТ 1 (видео слева, описание справа) -->
+    <section class="portfolio-item">
+        <div class="video-wrapper">
+            <!-- Размытый фон -->
+            <video class="video-bg" autoplay muted loop playsinline>
+                <source src="video/1.mp4" type="video/mp4">
+            </video>
+            <!-- Основное чёткое видео -->
+            <video class="video-main" autoplay muted loop playsinline>
+                <source src="video/1.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="info">
+            <h2>Видеоролик для блогера</h2>
+            <p class="description">
+                Обработка исходников, цветокоррекция, эффекты<br>
+                <strong>Время выполнения заказа - <span style="font-size: 1.5em;">2</span> дня</strong>
+            </p>
+            <div class="price">от 950 ₽</div>
+            <div style="margin-top: 20px;">
+                <a href="https://t.me/kirill_tutt" class="btn btn-outline">Написать в Telegram</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ПРОЕКТ 2 (видео справа, описание слева) -->
+    <section class="portfolio-item reverse">
+        <div class="video-wrapper">
+            <!-- Размытый фон -->
+            <video class="video-bg" autoplay muted loop playsinline>
+                <source src="video/2.mp4" type="video/mp4">
+            </video>
+            <!-- Основное чёткое видео -->
+            <video class="video-main" autoplay muted loop playsinline>
+                <source src="video/2.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="info">
+            <h2>Видеоролик для блогера</h2>
+            <p class="description">
+                Детальная обработка исходников, поиск дополнительных материалов, тонкая работа с маской, использование сложных эффектов, цветокоррекция, работа и генерация мелких частиц<br>
+                <strong>Время выполнения заказа - <span style="font-size: 1.5em;">20</span> дня</strong>
+            </p>
+            <div class="price">от 15 699 ₽</div>
+            <div style="margin-top: 20px;">
+                <a href="https://t.me/kirill_tutt" class="btn btn-outline">Написать в Telegram</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ПРОЕКТ 3 (видео слева) -->
+    <section class="portfolio-item">
+        <div class="video-wrapper">
+            <!-- Размытый фон -->
+            <video class="video-bg" autoplay muted loop playsinline>
+                <source src="video/3.mp4" type="video/mp4">
+            </video>
+            <!-- Основное чёткое видео -->
+            <video class="video-main" autoplay muted loop playsinline>
+                <source src="video/3.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="info">
+            <h2>Свадебный фильм</h2>
+            <p class="description">
+                Монтаж церемонии и банкета. Цветокоррекция в стиле
+                «тёплый кинематограф», спецэффекты на ваш вкус
+            </p>
+            <div class="price">от 12 100 ₽</div>
+            <div style="margin-top: 20px;">
+                <a href="https://t.me/kirill_tutt" class="btn btn-outline">Написать в Telegram</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ПРОЕКТ 4 -->
+    <section class="portfolio-item reverse">
+        <div class="video-wrapper">
+            <!-- Размытый фон -->
+            <video class="video-bg" autoplay muted loop playsinline>
+                <source src="video/4.mp4" type="video/mp4">
+            </video>
+            <!-- Основное чёткое видео -->
+            <video class="video-main" autoplay muted loop playsinline>
+                <source src="video/4.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="info">
+            <h2>Видео для портфолио </h2>
+            <p class="description">
+                Полный монтаж и поиск материалов. Цветокоррекция, трекер текст, эффекты скорости и др.<br>
+                <strong>Время выполнения заказа - <span style="font-size: 1.5em;">20</span> дня</strong>
+            </p>
+            <div class="price">от 1 500 ₽</div>
+            <div style="margin-top: 20px;">
+                <a href="https://t.me/kirill_tutt" class="btn btn-outline">Написать в Telegram</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ПРОЕКТ 5 -->
+    <section class="portfolio-item ">
+        <div class="video-wrapper">
+            <!-- Размытый фон -->
+            <video class="video-bg" autoplay muted loop playsinline>
+                <source src="video/5.mp4" type="video/mp4">
+            </video>
+            <!-- Основное чёткое видео -->
+            <video class="video-main" autoplay muted loop playsinline>
+                <source src="video/5.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="info">
+            <h2>Анимация логотипа</h2>
+            <p class="description">
+                Полная работа над логотипом с анимацией и текста<br>
+            </p>
+            <div class="price">от 12 100 ₽</div>
+            <div style="margin-top: 20px;">
+                <a href="https://t.me/kirill_tutt" class="btn btn-outline">Написать в Telegram</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ПРОЕКТ 6 -->
+    <section class="portfolio-item reverse">
+        <div class="video-wrapper">
+            <!-- Размытый фон -->
+            <video class="video-bg" autoplay muted loop playsinline>
+                <source src="video/6.mp4" type="video/mp4">
+            </video>
+            <!-- Основное чёткое видео -->
+            <video class="video-main" autoplay muted loop playsinline>
+                <source src="video/6.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="info">
+            <h2>Анимация логотипа</h2>
+            <p class="description">
+                Полная работа над логотипом с анимацией и текста<br>
+            </p>
+            <div class="price">от 1 200 ₽</div>
+            <div style="margin-top: 20px;">
+                <a href="https://t.me/kirill_tutt" class="btn btn-outline">Написать в Telegram</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ПРОЕКТ 7 (видео слева) -->
+    <section class="portfolio-item ">
+        <div class="video-wrapper">
+            <!-- Размытый фон -->
+            <video class="video-bg" autoplay muted loop playsinline>
+                <source src="video/7.mp4" type="video/mp4">
+            </video>
+            <!-- Основное чёткое видео -->
+            <video class="video-main" autoplay muted loop playsinline>
+                <source src="video/7.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="info">
+            <h2>Свадебный фильм</h2>
+            <p class="description">
+                Монтаж церемонии и банкета. Цветокоррекция, спецэффекты<br>
+                <strong>Время выполнения заказа - <span style="font-size: 1.5em;">11</span> дня</strong>
+            </p>
+            <div class="price">от 12 100 ₽</div>
+            <div style="margin-top: 20px;">
+                <a href="https://t.me/kirill_tutt" class="btn btn-outline">Написать в Telegram</a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Следим за видимостью всех основных видео
+        document.addEventListener('DOMContentLoaded', function() {
+            const videos = document.querySelectorAll('.video-main');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    const video = entry.target;
+                    // Находим парный фоновый видео в том же контейнере
+                    const bgVideo = video.parentElement.querySelector('.video-bg');
+
+                    if (entry.isIntersecting) {
+                        video.play();
+                        if (bgVideo) bgVideo.play();
+                    } else {
+                        video.pause();
+                        if (bgVideo) bgVideo.pause();
+                    }
+                });
+            }, {
+                threshold: 0.3
+            });
+
+            videos.forEach(video => observer.observe(video));
+        });
+    </script>
+</body>
+</html>
